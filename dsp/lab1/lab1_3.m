@@ -1,0 +1,21 @@
+Fs = 500;
+t = 0:1/Fs:1;
+f1 = 1;
+f2 = 2;
+f3 = 3;
+x = 0.15*cos(2*pi*f1*t) + sin(2*pi*f2*t)-0.1*sin(2*pi*f3*t);
+n = 0:Fs;
+N = 5010;
+f = 0:Fs/(N - 1):Fs;
+w = -1*pi:0.001*pi : 1*pi;
+X = x * exp(-j*n'*w);
+subplot(211);
+
+xlabel('n');title('Magnitude');
+H = fft(x,N);
+plot(w,abs(X)/250);
+axis ([0,0.1,0,1]);
+subplot(212);
+xlabel('f');title('Magnitude');
+stem(f,abs(H)/250,'filled');
+axis ([0,10,0,1]);

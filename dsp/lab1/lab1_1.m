@@ -1,0 +1,14 @@
+x = [2,-1,1,1,zeros(1,6000)];
+n= 0:6003;
+w = -pi:0.01*pi : pi;
+X = x * exp(-j*n'*w);
+subplot(211);
+plot(w,abs(X));
+xlabel('\Omega/\pi');title('Magnitude');
+axis tight;hold on;
+H = fft(x);
+stem(n,abs(H),'filled');
+subplot(212);
+plot(w,angle(X)/pi);xlabel('\Omega/\pi');title('Phase');
+axis tight;hold on;
+stem(n,angle(H),'filled');

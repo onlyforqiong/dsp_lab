@@ -1,0 +1,4 @@
+x = [2,-1,1,1];
+n= 0:3;
+subplot(211);
+plot(w,abs(X));xlabel('\Omega/\pi');title('Magnitude');
